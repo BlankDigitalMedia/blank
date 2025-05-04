@@ -9,76 +9,77 @@ import { toast } from "sonner"
 
 // Helper to update CSS variables
 const updateCssVariable = (variable: string, value: string) => {
-  document.documentElement.style.setProperty(variable, value);
+  // Check if window is defined (runs only on client)
+  if (typeof window !== 'undefined') {
+    document.documentElement.style.setProperty(variable, value);
+  }
 }
 
 export function ThemeControls() {
-  const [primaryColor, setPrimaryColor] = useState("#000000") // Default or fetch initial
-  const [borderRadius, setBorderRadius] = useState("0.5") // Default or fetch initial
+  const [primaryColor, setPrimaryColor] = useState("#000000") // Default hex
+  const [borderRadius, setBorderRadius] = useState("0.5") // Default rem value
 
-  // Fetch initial values from CSS variables on mount
+  // Fetch initial border radius from CSS variables on mount
   useEffect(() => {
-    const rootStyle = getComputedStyle(document.documentElement);
-    const initialColor = rootStyle.getPropertyValue("--primary") // Assuming HSL format
-    const initialRadius = rootStyle.getPropertyValue("--radius") || "0.5";
-    
-    // Basic conversion from HSL string (e.g., "240 10% 3.9%") to hex for color picker
-    // This is a placeholder and might need a robust HSL-to-Hex conversion
-    if (initialColor) {
-      const hslParts = initialColor.trim().split(" ");
-      // Simplified: Use a default hex if conversion is complex/not implemented
-      setPrimaryColor("#000000"); // Placeholder
+    // Ensure this runs only on the client
+    if (typeof window !== 'undefined') {
+      const rootStyle = getComputedStyle(document.documentElement);
+      const initialRadius = rootStyle.getPropertyValue("--radius") || "0.5";
+      setBorderRadius(initialRadius.replace("rem", ""));
+      
+      // Note: We don't fetch initial primary color as it's in HSL format
+      // and the input type='color' uses HEX.
     }
-
-    setBorderRadius(initialRadius.replace("rem", ""));
   }, []);
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newColor = event.target.value;
     setPrimaryColor(newColor);
-    // TODO: Convert hex to HSL format required by shadcn/ui themes (e.g., "240 10% 3.9%")
-    // updateCssVariable("--primary", convertedHSLValue);
-    toast.info("Primary color updated (preview only - apply in tailwind.config)")
+    // Clarification: Live update for --primary (HSL) from HEX is complex.
+    // This control now primarily serves as a color *selector*.
+    toast.info(`Selected Primary Color: ${newColor}. Apply HSL value in tailwind.config.js or use Theme Importer.`);
   }
 
   const handleRadiusChange = (value: string) => {
     setBorderRadius(value);
     updateCssVariable("--radius", `${value}rem`);
-    toast.info("Border radius updated (preview only - apply in tailwind.config)")
+    toast.success(`Border radius live preview updated to ${value}rem. Apply in tailwind.config.js to persist.`);
   }
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Theme Customizer</CardTitle>
+        <CardTitle>Theme Preview Customizer</CardTitle>
         <CardDescription>
-          Adjust primary color and border radius for preview. Apply changes in `tailwind.config.mjs`.
+          Adjust border radius for live preview. Select a primary color (HEX).
+          Apply final theme values (HSL colors, radius) in `tailwind.config.mjs` or use the Theme Importer.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex items-center space-x-2">
-          <Label htmlFor="primary-color">Primary Color</Label>
+          <Label htmlFor="primary-color">Primary Color (Selector)</Label>
           <Input 
             id="primary-color"
             type="color" 
             value={primaryColor} 
             onChange={handleColorChange} 
-            className="w-16 h-8 p-1"
+            className="w-10 h-8 p-1 cursor-pointer"
+            aria-label="Select primary color (does not live update theme)"
           />
           <span className="text-xs text-muted-foreground">({primaryColor})</span>
         </div>
         <div className="flex items-center space-x-2">
-          <Label htmlFor="border-radius">Border Radius</Label>
+          <Label htmlFor="border-radius">Border Radius (Live Preview)</Label>
           <Select value={borderRadius} onValueChange={handleRadiusChange}>
             <SelectTrigger id="border-radius" className="w-[100px] h-8 text-xs">
               <SelectValue placeholder="Radius" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="0">0</SelectItem>
-              <SelectItem value="0.3">0.3</SelectItem>
-              <SelectItem value="0.5">0.5</SelectItem>
-              <SelectItem value="0.75">0.75</SelectItem>
-              <SelectItem value="1.0">1.0</SelectItem>
+              <SelectItem value="0">0rem</SelectItem>
+              <SelectItem value="0.3">0.3rem</SelectItem>
+              <SelectItem value="0.5">0.5rem</SelectItem>
+              <SelectItem value="0.75">0.75rem</SelectItem>
+              <SelectItem value="1.0">1.0rem</SelectItem>
             </SelectContent>
           </Select>
           <span className="text-xs text-muted-foreground">({borderRadius}rem)</span>
