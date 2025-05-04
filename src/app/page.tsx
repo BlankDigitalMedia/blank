@@ -8,9 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle
+} from "@/components/ui/alert"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Heading } from "@/components/ui/heading-font"
-import { ArrowRight, Bot, Component, Palette, PenTool } from "lucide-react"
+import { ArrowRight, Bot, Component, Info, Palette, PenTool } from "lucide-react"
 
 
 const technologies = [
@@ -63,6 +68,19 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </section>
+
+      {/* Production Notice */}
+      <Alert className="max-w-3xl mx-auto mb-12 md:mb-16">
+        <Info className="h-4 w-4" />
+        <AlertTitle>Developer Resources</AlertTitle>
+        <AlertDescription>
+          <p>This project includes a <Link href="/registry" className="underline">component registry</Link> to help during development.</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            ⚠️ Before deploying to production, you may want to remove the <code className="text-xs bg-muted px-1 py-0.5 rounded">app/registry</code> directory 
+            to reduce bundle size and remove developer-only features.
+          </p>
+        </AlertDescription>
+      </Alert>
 
       {/* How to Use */}
       <section className="mb-12 md:mb-16">

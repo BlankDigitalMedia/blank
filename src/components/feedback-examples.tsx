@@ -19,7 +19,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Terminal } from "lucide-react"
 
 // Re-exporting Toast examples from here now
-export { BasicToastExamples, AdvancedToastExamples } from "@/components/toast-examples"
 
 // --- Component Examples --- 
 
@@ -205,7 +204,6 @@ export default function FeedbackExamples() {
       <AlertExamples />
       <ProgressExamples />
       <SkeletonExamples />
-      {/* Keep Toast examples in their own components for clarity, imported above */}
       <BasicToastExamples /> 
       <AdvancedToastExamples /> 
     </div>

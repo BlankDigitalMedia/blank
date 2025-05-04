@@ -72,9 +72,6 @@ export function ColorsShowcase() {
               <div key={color.name} className="text-center">
                 <div className={`h-10 w-full rounded border ${color.class}`}></div>
                 <p className="text-xs mt-1 font-medium truncate">{color.name}</p>
-                {/* Optional: show text color preview 
-                <p className={`text-xs ${color.text} ${color.class}`}>Aa</p> 
-                */}
               </div>
             ))}
           </CardContent>
@@ -153,10 +150,6 @@ export function TypographyShowcase() {
 }
 
 export function UIStylingShowcase() {
-  // No longer need hardcoded colors here
-  // const primaryButtonColor = palettes.primary.main; 
-  // const primaryButtonHoverColor = palettes.primary.shades[3];
-
   return (
     <div className="space-y-4 mt-8">
       <Heading as="h2" size="sm">UI Styling</Heading>
@@ -182,7 +175,6 @@ export function UIStylingShowcase() {
             {/* Example Input using default styles */}
             <div>
               <Label htmlFor="example-ui" className="text-xs mb-1 block">Label</Label>
-              {/* Removed bg-muted border-muted override */}
               <Input id="example-ui" className="h-9" placeholder="Placeholder" /> 
             </div>
           </CardContent>
