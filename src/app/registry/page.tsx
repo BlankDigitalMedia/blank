@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
+import dynamic from 'next/dynamic'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -18,13 +19,31 @@ import { BasicToastExamples, AdvancedToastExamples } from "@/components/toast-ex
 import { BasicDialogExample, FormDialogExample } from "@/components/dialog-examples"
 import { ColorsShowcase, TypographyShowcase, UIStylingShowcase } from "@/components/styles-showcase"
 import { Heading } from "@/components/ui/heading-font"
-import LayoutExamples from "@/components/layout-examples"
-import FormsInputsExamples from "@/components/forms-inputs-examples"
-import FeedbackExamples from "@/components/feedback-examples"
-import NavigationExamples from "@/components/navigation-examples"
-import DataDisplayExamples from "@/components/data-display-examples"
-import OverlaysExamples from "@/components/overlays-examples"
-import DateTimeExamples from "@/components/date-time-examples"
+import { ThemeImporter } from "@/components/theme-import"
+import { ThemeControls } from "@/components/theme-controls"
+
+// Dynamic imports for registry tab components
+const LayoutExamples = dynamic(() => import("@/components/layout-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const FormInputExamples = dynamic(() => import("@/components/forms-inputs-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const NavigationExamples = dynamic(() => import("@/components/navigation-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const DataDisplayExamples = dynamic(() => import("@/components/data-display-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const FeedbackExamples = dynamic(() => import("@/components/feedback-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const OverlaysExamples = dynamic(() => import("@/components/overlays-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
+const DateTimeExamples = dynamic(() => import("@/components/date-time-examples"), {
+  loading: () => <div className="p-4 animate-pulse bg-muted rounded-md h-32" />
+});
 
 export const metadata: Metadata = {
   title: "Component Registry",
@@ -43,6 +62,11 @@ export default function RegistryPage() {
         </div>
         <ThemeToggle />
       </header>
+
+      <div className="grid md:grid-cols-2 gap-4 mb-4">
+        <ThemeControls />
+        <ThemeImporter />
+      </div>
 
       <Tabs defaultValue="styles" className="w-full mb-4">
         <TabsList className="mb-4 grid grid-cols-4 sm:grid-cols-8 h-auto">
@@ -64,37 +88,37 @@ export default function RegistryPage() {
         </TabsContent>
         
         <TabsContent value="layout" className="space-y-4">
-          <h2 className="text-xl font-semibold">Layout Components</h2>
+          <Heading as="h2" size="sm">Layout Components</Heading>
           <LayoutExamples />
         </TabsContent>
 
         <TabsContent value="forms" className="space-y-4">
-          <h2 className="text-xl font-semibold">Forms & Inputs</h2>
-          <FormsInputsExamples />
+          <Heading as="h2" size="sm">Forms & Inputs</Heading>
+          <FormInputExamples />
         </TabsContent>
 
         <TabsContent value="feedback" className="space-y-4">
-          <h2 className="text-xl font-semibold">Feedback Components</h2>
+          <Heading as="h2" size="sm">Feedback Components</Heading>
           <FeedbackExamples />
         </TabsContent>
 
         <TabsContent value="navigation" className="space-y-4">
-          <h2 className="text-xl font-semibold">Navigation Components</h2>
+          <Heading as="h2" size="sm">Navigation Components</Heading>
           <NavigationExamples />
         </TabsContent>
 
         <TabsContent value="data" className="space-y-4">
-          <h2 className="text-xl font-semibold">Data Display Components</h2>
+          <Heading as="h2" size="sm">Data Display Components</Heading>
           <DataDisplayExamples />
         </TabsContent>
 
         <TabsContent value="overlays" className="space-y-4">
-          <h2 className="text-xl font-semibold">Overlay Components</h2>
+          <Heading as="h2" size="sm">Overlay Components</Heading>
           <OverlaysExamples />
         </TabsContent>
 
         <TabsContent value="datetime" className="space-y-4">
-          <h2 className="text-xl font-semibold">Date & Time Components</h2>
+          <Heading as="h2" size="sm">Date & Time Components</Heading>
           <DateTimeExamples />
         </TabsContent>
       </Tabs>
