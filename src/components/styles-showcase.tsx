@@ -79,7 +79,7 @@ export function ColorsShowcase() {
             ))}
           </CardContent>
            <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Reflects `tailwind.config.js` or defaults.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `[color name]` color in the Tailwind theme config to `[hex code]`".</p>
           </CardFooter>
       </Card>
 
@@ -100,7 +100,7 @@ export function ColorsShowcase() {
             </div>
           </CardContent>
            <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Uses default Tailwind scale unless overridden.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `neutral` colors in the Tailwind theme config".</p>
           </CardFooter>
         </Card>
     </div>
@@ -121,7 +121,7 @@ export function TypographyShowcase() {
             <p className="font-sans text-sm font-light italic">The quick brown fox jumps over the lazy dog.</p>
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Uses `font-sans` from theme.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `sans` font family in the Tailwind theme config to `[Font Name]`".</p>
           </CardFooter>
         </Card>
 
@@ -133,7 +133,7 @@ export function TypographyShowcase() {
              <p className="font-serif text-sm italic">The quick brown fox jumps over the lazy dog.</p>
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Uses `font-serif` from theme.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `serif` font family in the Tailwind theme config to `[Font Name]`".</p>
           </CardFooter>
         </Card>
          <Card>
@@ -144,7 +144,7 @@ export function TypographyShowcase() {
              <p className="font-mono text-sm">The quick brown fox jumps over the lazy dog.</p>
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Uses `font-mono` from theme.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `mono` font family in the Tailwind theme config to `[Font Name]`".</p>
           </CardFooter>
         </Card>
       </div>
@@ -187,7 +187,7 @@ export function UIStylingShowcase() {
             </div>
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Components use styles defined in the theme.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the default `Button` or `Input` styles in the Tailwind theme config".</p>
           </CardFooter>
         </Card>
 
@@ -225,7 +225,7 @@ export function UIStylingShowcase() {
 
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Uses styles defined in the theme.</p>
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the base `Card` styles in the Tailwind theme config".</p>
           </CardFooter>
         </Card>
       </div>
