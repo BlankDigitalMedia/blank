@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -60,9 +58,9 @@ export default function HomePage() {
             <p className="text-muted-foreground">
               This is a starter template built with Next.js and shadcn/ui. The 
               <Link href="/registry" className="text-primary underline hover:no-underline px-1">Component Registry</Link> 
-              isn't just a static style guide—it's a live preview reflecting the actual theme 
+              isn&apos;t just a static style guide—it&apos;s a live preview reflecting the actual theme 
               (either Tailwind defaults or your `tailwind.config.js`). 
-              It's designed to streamline development, especially when using AI tools like Cursor 
+              It&apos;s designed to streamline development, especially when using AI tools like Cursor 
               for theme customization.
             </p>
           </CardContent>
