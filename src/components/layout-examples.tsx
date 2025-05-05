@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 
 export default function LayoutExamples() {
   return (
@@ -72,7 +73,7 @@ export default function LayoutExamples() {
             <CardDescription className="text-xs">New features available</CardDescription>
           </CardHeader>
           <CardContent className="p-3">
-            <p className="text-xs">We've just released a new update with several improvements:</p>
+            <p className="text-xs">We&apos;ve just released a new update with several improvements:</p>
             <ul className="list-disc list-inside mt-1 space-y-0.5 text-xs">
               <li>Improved performance</li>
               <li>New dark mode option</li>
@@ -84,6 +85,16 @@ export default function LayoutExamples() {
           </CardFooter>
         </Card>
       </div>
+
+      {/* Tabs Example */}
+      <Tabs defaultValue="account" className="w-full">
+        <TabsContent value="account">
+          Account
+        </TabsContent>
+        <TabsContent value="password">
+          Change your password here. Don&apos;t forget to save.
+        </TabsContent>
+      </Tabs>
     </div>
   )
 } 
