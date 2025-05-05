@@ -15,12 +15,8 @@ import { Input } from "@/components/ui/input"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BasicToastExamples, AdvancedToastExamples } from "@/components/toast-examples"
-import { BasicDialogExample, FormDialogExample } from "@/components/dialog-examples"
 import { ColorsShowcase, TypographyShowcase, UIStylingShowcase } from "@/components/styles-showcase"
 import { Heading } from "@/components/ui/heading-font"
-import { ThemeImporter } from "@/components/theme-import"
-import { ThemeControls } from "@/components/theme-controls"
 
 // Dynamic imports for registry tab components
 const LayoutExamples = dynamic(() => import("@/components/layout-examples"), {
@@ -62,11 +58,6 @@ export default function RegistryPage() {
         </div>
         <ThemeToggle />
       </header>
-
-      <div className="grid md:grid-cols-2 gap-4 mb-4">
-        <ThemeControls />
-        <ThemeImporter />
-      </div>
 
       <Tabs defaultValue="styles" className="w-full mb-4">
         <TabsList className="mb-4 grid grid-cols-4 sm:grid-cols-8 h-auto">

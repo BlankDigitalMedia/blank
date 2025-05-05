@@ -159,65 +159,98 @@ export function UIStylingShowcase() {
         <Card>
           <CardHeader className="p-3">
             <CardTitle className="text-sm">Buttons & Forms</CardTitle>
-             <CardDescription className="text-xs">Default component styles.</CardDescription>
+             <CardDescription className="text-xs">Default component styles derived from CSS variables.</CardDescription>
           </CardHeader>
           <CardContent className="p-4 space-y-4">
-            {/* Example Buttons using default variants */}
+            {/* Example Buttons with annotations */}
             <div className="flex gap-3 flex-wrap items-center">
-              <Button size="sm">Primary</Button> 
-              <Button size="sm" variant="secondary">Secondary</Button>
-              <Button size="sm" variant="outline">Outline</Button>
-               <Button size="sm" variant="ghost">Ghost</Button>
-               <Button size="sm" variant="link">Link</Button>
-               <Button size="sm" variant="destructive">Destructive</Button>
+              <div>
+                <Button size="sm">Primary</Button> 
+                <p className="text-[10px] text-muted-foreground mt-1">bg: var(--primary)</p>
+              </div>
+               <div>
+                 <Button size="sm" variant="secondary">Secondary</Button>
+                 <p className="text-[10px] text-muted-foreground mt-1">bg: var(--secondary)</p>
+              </div>
+               <div>
+                 <Button size="sm" variant="destructive">Destructive</Button>
+                 <p className="text-[10px] text-muted-foreground mt-1">bg: var(--destructive)</p>
+               </div>
+               <div>
+                <Button size="sm" variant="outline">Outline</Button>
+                 <p className="text-[10px] text-muted-foreground mt-1">border: var(--border)</p>
+               </div>
+               {/* Removed Ghost and Link for brevity, focus on variable-driven styles */}
+               {/* <Button size=\"sm\" variant=\"ghost\">Ghost</Button> */}
+               {/* <Button size=\"sm\" variant=\"link\">Link</Button> */}
             </div>
             
-            {/* Example Input using default styles */}
+            {/* Example Input with annotations */}
             <div>
-              <Label htmlFor="example-ui" className="text-xs mb-1 block">Label</Label>
-              <Input id="example-ui" className="h-9" placeholder="Placeholder" /> 
+              <Label htmlFor="example-ui-1" className="text-xs mb-1 block">Input Style</Label>
+              <Input id="example-ui-1" className="h-9" placeholder="Placeholder" /> 
+              <p className="text-[10px] text-muted-foreground mt-1">bg: var(--input), border: var(--border)</p>
             </div>
+
+             {/* Example Input showing focus ring */}
+            <div>
+              <Label htmlFor="example-ui-2" className="text-xs mb-1 block">Input Focus Ring</Label>
+              <Input id="example-ui-2" className="h-9 focus:ring-2 focus:ring-offset-2" placeholder="Focus me" /> 
+              <p className="text-[10px] text-muted-foreground mt-1">Focus ring uses var(--ring)</p>
+            </div>
+
+            {/* Example Border */}
+             <div>
+                <p className="text-xs mb-1 block">Border Style</p>
+                <div className="h-10 rounded border p-2 text-xs flex items-center">
+                  This box uses var(--border)
+                </div>
+             </div>
+
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Ask AI: "Update the default `Button` or `Input` styles in the Tailwind theme config".</p>
+             {/* Updated Ask AI prompt */}
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `--primary` CSS variable in `globals.css`" or "Change the `border` color in `tailwind.config.js`".</p>
           </CardFooter>
         </Card>
 
         {/* Cards & Images Card */}
         <Card>
           <CardHeader className="p-3">
-            <CardTitle className="text-sm">Cards & Images</CardTitle>
-            <CardDescription className="text-xs">Default card and image styles.</CardDescription>
+            <CardTitle className="text-sm">Cards & Radius</CardTitle> {/* Changed title */}
+            <CardDescription className="text-xs">Card background and border radius styles.</CardDescription>
           </CardHeader>
           <CardContent className="p-4 space-y-4">
-            {/* Example Images with default rounding */}
-            <div className="grid grid-cols-2 gap-3">
-               <PlaceholderImage className="rounded-md" /> {/* Assuming default is rounded-md */}
-               <PlaceholderImage className="rounded-lg"/>
-            </div>
-            
-            {/* Example Default Card */}
+            {/* Example Default Card with annotations*/}
             <Card className="p-3">
-               <PlaceholderImage className="rounded aspect-video mb-2" />
-              <h3 className="text-sm font-medium mb-1">Default Card</h3>
-              <p className="text-xs text-muted-foreground mb-2">Uses base card styles from theme.</p>
-              <div className="flex justify-end">
-                 <Button variant="ghost" size="sm" className="h-7 text-xs px-2">Button</Button>
+              <div className="flex items-center justify-between mb-1">
+                 <h3 className="text-sm font-medium">Default Card</h3>
+                 <p className="text-[10px] text-muted-foreground">bg: var(--card)</p>
+              </div>
+              <p className="text-xs text-muted-foreground mb-2">Uses base card styles. The border radius below is controlled by `var(--radius)`.</p>
+              <div className="bg-muted h-16 rounded-md border flex items-center justify-center text-xs">
+                  {/* Example radius annotation inside */}
+                  <span className="text-muted-foreground">radius: var(--radius)</span> 
               </div>
             </Card>
 
-             {/* Example Card with Text */}
-             <Card className="p-3">
-              <h3 className="text-sm font-medium mb-1">Another Card Example</h3>
-              <p className="text-xs text-muted-foreground mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <div className="flex justify-end">
-                 <Button variant="ghost" size="sm" className="h-7 text-xs px-2">Button</Button>
-              </div>
-            </Card>
+            {/* Removed the second card example for simplicity */}
+
+            {/* Explicit radius examples */}
+            <div>
+                <p className="text-xs mb-1 block">Border Radius Examples</p>
+                 <div className="flex gap-3 items-center">
+                    <div className="h-10 w-10 bg-secondary rounded-sm border flex items-center justify-center text-[10px] text-secondary-foreground">sm</div>
+                    <div className="h-10 w-10 bg-secondary rounded-md border flex items-center justify-center text-[10px] text-secondary-foreground">md</div>
+                    <div className="h-10 w-10 bg-secondary rounded-lg border flex items-center justify-center text-[10px] text-secondary-foreground">lg</div>
+                 </div>
+                 <p className="text-[10px] text-muted-foreground mt-1">sm, md, lg radii derive from var(--radius)</p>
+            </div>
 
           </CardContent>
           <CardFooter className="p-2 border-t">
-            <p className="text-xs text-muted-foreground">Ask AI: "Update the base `Card` styles in the Tailwind theme config".</p>
+             {/* Updated Ask AI prompt */}
+            <p className="text-xs text-muted-foreground">Ask AI: "Update the `--card` background color in `globals.css`" or "Change the base `--radius` value?".</p>
           </CardFooter>
         </Card>
       </div>
