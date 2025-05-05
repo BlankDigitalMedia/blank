@@ -1,12 +1,12 @@
-# AI-Powered Design Starter
+# blank Design Starter
 
-A comprehensive, interactive component showcase and design system starter for Next.js projects optimized for AI-assisted development workflows.
+A comprehensive, interactive component showcase and design system starter for Next.js projects optimized for AI-assisted development workflows, part of the blank project.
 
 ![Component Registry Preview](https://via.placeholder.com/800x400?text=Component+Registry+Screenshot)
 
 ## What Is This?
 
-The AI-Powered Design Starter is a specialized Next.js template designed to accelerate UI development with a focus on AI-assisted workflows. Unlike typical component libraries or design systems, this project provides:
+The blank Design Starter is a specialized Next.js template designed to accelerate UI development with a focus on AI-assisted workflows. Unlike typical component libraries or design systems, this project provides:
 
 1. **Live Component Registry** - An interactive showcase of all shadcn/ui components with real-time theme reflection
 2. **AI-Optimized Structure** - Organized specifically for effective interaction with AI coding assistants like Cursor

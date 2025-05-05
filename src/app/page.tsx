@@ -38,10 +38,10 @@ export default function HomePage() {
           <ThemeToggle />
         </div>
         <Heading as="h1" size="xl" className="mb-4">
-          AI-Powered Design Starter
+          blank
         </Heading>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-6">
-          Jumpstart your Next.js project with a comprehensive shadcn/ui component library, live theme preview, and guides for AI-driven customization.
+          Jumpstart your project with the blank component library, live theme preview, and guides for AI-driven customization.
         </p>
         <Button asChild size="lg">
           <Link href="/registry">

@@ -42,8 +42,8 @@ const DateTimeExamples = dynamic(() => import("@/components/date-time-examples")
 });
 
 export const metadata: Metadata = {
-  title: "Component Registry",
-  description: "A showcase of UI components using shadcn/ui, Radix UI, and Sonner toast",
+  title: "Registry",
+  description: "Component registry for the blank design system.",
 }
 
 export default function RegistryPage() {

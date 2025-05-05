@@ -16,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Component Registry",
-  description: "A showcase of UI components",
+  title: {
+    template: "%s | blank",
+    default: "blank - Component Registry & Design Starter",
+  },
+  description: "A showcase and starter for the blank design system using shadcn/ui.",
 };
 
 export default function RootLayout({
